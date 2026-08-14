@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #121417;
+  --chalk: #e8eaed;
+  --stone: #9aa3ad;
+  --signal: #1f7a4c;
+  --signal-deep: #17633d;
+  --muted: #4a5159;
+  --surface: #f3f4f6;
+  --line: rgba(18, 20, 23, 0.12);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-chalk: var(--chalk);
+  --color-stone: var(--stone);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--chalk);
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay-1 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.animate-rise-delay-3 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+.animate-kenburns {
+  animation: kenburns 18s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-delay-1,
+  .animate-rise-delay-2,
+  .animate-rise-delay-3,
+  .animate-kenburns,
+  .animate-fade-in {
+    animation: none;
+  }
+}
