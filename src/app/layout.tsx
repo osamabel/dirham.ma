@@ -17,14 +17,49 @@ const sans = Figtree({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.domain} — Domain for sale`,
+  title: {
+    default: `${site.domain} — Domain for sale | Premium .ma name`,
+    template: `%s | ${site.domain}`,
+  },
   description: site.description,
+  keywords: [...site.keywords],
+  authors: [{ name: "Oussama Belkhadir", url: site.url }],
+  creator: "Oussama Belkhadir",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: site.url,
+  },
   openGraph: {
     title: `${site.domain} is for sale`,
     description: site.description,
     url: site.url,
     siteName: site.domain,
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/hero.webp",
+        width: 1536,
+        height: 1024,
+        alt: `${site.domain} — Moroccan domain for sale`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.domain} is for sale`,
+    description: site.description,
+    images: ["/hero.webp"],
   },
 };
 
